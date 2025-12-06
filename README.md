@@ -10,15 +10,20 @@ This repository provides scripts to safely **enable or disable Hyper-V and relat
 ---
 
 ## Enable Hyper-V
-Run `enable_hyperv.bat` or follow:
+follow:
 1. Go to **Turn Windows features on or off**.
 2. Enable **all Hyper-V sections**.
-3. Restart your PC.
+3. ```cmd
+   bcdedit /set hypervisorlaunchtype off
+   DISM /Online /Disable-Feature /FeatureName:VirtualMachinePlatform
+   DISM /Online /Disable-Feature /FeatureName:HypervisorPlatform
+   DISM /Online /Disable-Feature /FeatureName:Containers-DisposableClientVM
+4. Restart your PC.
 
 ---
 
 ## Disable Hyper-V
-Run `disable_hyperv.bat` or follow:
+follow:
 ```cmd
 bcdedit /set hypervisorlaunchtype off
 DISM /Online /Disable-Feature /FeatureName:VirtualMachinePlatform
