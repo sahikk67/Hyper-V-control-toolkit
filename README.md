@@ -19,7 +19,8 @@ follow:
    DISM /Online /Disable-Feature /FeatureName:HypervisorPlatform
    DISM /Online /Disable-Feature /FeatureName:Containers-DisposableClientVM
 4. Restart your PC.
-
+5. Install VirtualBox from this link: [VirtualBox 7.2.4](https://download.virtualbox.org/virtualbox/7.2.4/VirtualBox-7.2.4-170995-Win.exe)
+6. After installation, set up your OS in VirtualBox.
 ---
 
 ## Disable Hyper-V
@@ -29,3 +30,4 @@ bcdedit /set hypervisorlaunchtype off
 DISM /Online /Disable-Feature /FeatureName:VirtualMachinePlatform
 DISM /Online /Disable-Feature /FeatureName:HypervisorPlatform
 DISM /Online /Disable-Feature /FeatureName:Containers-DisposableClientVM
+
