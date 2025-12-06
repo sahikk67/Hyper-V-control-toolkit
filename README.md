@@ -1,22 +1,26 @@
-⚡ Quick Notes – Hyper-V Management
-Important: Always run scripts as Administrator.
-Many changes require a system restart to take effect.
+# Windows Hyper-V Manager
 
-🛠 Scripts Used
-DISM – Windows feature management
-bcdedit – Boot configuration
-PowerShell – WindowsOptionalFeature commands
+This repository provides scripts to safely **enable or disable Hyper-V and related Windows features**, and to check their status.
 
-✅ Enabling Hyper-V
-Open “Turn Windows Features On or Off”.
-Ensure all Hyper-V sections are enabled.
-Restart your PC to apply changes.
+## Quick Notes
+- Run all scripts as **Administrator**.
+- A **restart** is required for many changes to take effect.
+- Scripts use `DISM` and `bcdedit` commands.
 
-❌ Disabling Hyper-V
-Run the disable_hyperv.ps1 script as Administrator.
-Restart your PC to fully remove Hyper-V.
+---
 
-🔍 Checking Hyper-V Status
-Use check_hyperv.ps1 to inspect current settings:
-Boot configuration (bcdedit)
-Installed Windows features (DISM)
+## Enable Hyper-V
+Run `enable_hyperv.bat` or follow:
+1. Go to **Turn Windows features on or off**.
+2. Enable **all Hyper-V sections**.
+3. Restart your PC.
+
+---
+
+## Disable Hyper-V
+Run `disable_hyperv.bat` or follow:
+```cmd
+bcdedit /set hypervisorlaunchtype off
+DISM /Online /Disable-Feature /FeatureName:VirtualMachinePlatform
+DISM /Online /Disable-Feature /FeatureName:HypervisorPlatform
+DISM /Online /Disable-Feature /FeatureName:Containers-DisposableClientVM
