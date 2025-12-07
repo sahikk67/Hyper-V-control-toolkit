@@ -30,4 +30,3 @@ bcdedit /set hypervisorlaunchtype off
 DISM /Online /Disable-Feature /FeatureName:VirtualMachinePlatform
 DISM /Online /Disable-Feature /FeatureName:HypervisorPlatform
 DISM /Online /Disable-Feature /FeatureName:Containers-DisposableClientVM
-
